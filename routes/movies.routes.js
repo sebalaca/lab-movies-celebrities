@@ -48,4 +48,20 @@ router.get("/movies/:id", (req, res) => {
   .catch((e) => console.log(e));
 })
 
+// Iteration #9: Deleting Movies
+
+router.post('/movies/:id/delete', (req, res, next) => {
+  // Iteration #5: Delete the drone
+  const { id } = req.params;
+  console.log("Console del Movie delete");
+
+  Movie.findByIdAndDelete(id)
+    .then(()=>{
+      console.log(`Movie, ${id},  eliminada correctamente`)
+      res.redirect("/movies")
+    })
+    .catch(e=>console.log(e))
+});
+
+
 module.exports = router;

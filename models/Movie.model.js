@@ -12,8 +12,8 @@ const movieSchema = new Schema({
     type: String
   },
   cast: {
-    type: [ Schema.Types.ObjectId ],
-    ref: 'Celebrity'
+    type: [ Schema.Types.ObjectId ],  //  llama datos de otro schema o BD
+    ref: 'Celebrity'                  // referencia de donde se llama.
   }
 });
 
