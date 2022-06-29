@@ -55,7 +55,7 @@ router.post('/movies/:id/delete', (req, res, next) => {
   const { id } = req.params;
   console.log("Console del Movie delete");
 
-  Movie.findByIdAndDelete(id)
+  Movie.findByIdAndRemove(id)
     .then(()=>{
       console.log(`Movie, ${id},  eliminada correctamente`)
       res.redirect("/movies")
