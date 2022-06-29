@@ -11,7 +11,7 @@ router.get('/movies/create', (req, res) => {
         .then(celebrity => {
             res.render('movies/new-movie', { celebrity })
         })
-        .catch(err => console.log(err))
+        .catch(e => console.log(e))
 
 })
 
@@ -20,7 +20,7 @@ router.post('/movies/create', (req, res) => {
     Movie
         .create({ title, genre, plot, cast })
         .then(movie => res.redirect('/movies'))
-        .catch(err => console.log(err))
+        .catch(e => console.log(e))
 })
 
 // Iteración #7: Listado de nuestras películas
@@ -34,5 +34,18 @@ router.get('/movies', (req, res, next) => {
       next(e);
     });
   });
+
+// Iteración #8: La página de detalles de la película
+
+router.get("/movies/:id", (req, res) => {
+  const id = req.params.id;
+  Movie.findById(id)
+  .populate('cast')
+  .then((movie) => {
+    console.log(movie)
+      res.render("movies/movie-details.hbs", movie)
+  })
+  .catch((e) => console.log(e));
+})
 
 module.exports = router;

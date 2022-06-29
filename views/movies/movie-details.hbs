@@ -1,0 +1,18 @@
+<div>
+  <a href="/">Home</a> 
+    <div>
+    <h2>Movie Details</h2>
+    <hr>
+    <p>Title: {{title}}</p>
+    <p>Genre: {{genre}}</p>
+    <p>Plot: {{plot}}</p>
+    </div>
+    <div>
+        <h5>Celebrities</h5>
+        {{#each cast}}
+            <p>Name: {{this.name}}</p>
+            <p>Occupation: {{this.occupation}}</p>
+            <p>CatchPhrase: {{this.catchPhrase}}</p>
+        {{/each}}
+    </div>
+</div>

@@ -1,13 +1,10 @@
 <div>
-
+  <a href="/">Home</a> 
   <h2>Movies List</h2>
-    <a href="/">Home</a> 
-
 
   {{#each movie}}
-
-    <p>{{title}}</p>
-
+    <br>
+    <p><a href="/movies/{{this._id}}">{{title}}</a></p>
   {{/each}}
 
 </div>

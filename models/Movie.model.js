@@ -1,7 +1,7 @@
 // Iteration #5: The movie model
 const mongoose = require("mongoose");
-
-const movieSchema = new mongoose.Schema({
+const {Schema} = require("mongoose");
+const movieSchema = new Schema({
   title: {
     type: String
   },
@@ -12,7 +12,8 @@ const movieSchema = new mongoose.Schema({
     type: String
   },
   cast: {
-    type: Array
+    type: [ Schema.Types.ObjectId ],
+    ref: 'Celebrity'
   }
 });
 
